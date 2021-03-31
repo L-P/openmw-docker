@@ -1,0 +1,3 @@
+[submodule "openmw"]
+	path = openmw
+	url = https://gitlab.com/OpenMW/openmw.git
