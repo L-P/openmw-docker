@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eu
+
 userdir="$(getent passwd "$(whoami)" | cut -d: -f6)"
 
 if [ -z "$MORROWIND_DIR" ]; then

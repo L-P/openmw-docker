@@ -7,7 +7,7 @@ MAXJOBS=4
 MAXLOAD=8
 OPTS="-DCMAKE_BUILD_TYPE=Debug -GNinja"
 
-set -exo pipefail
+set -euo pipefail
 cd "$(dirname "$0")"
 
 ./run-docker sh -c "mkdir -p build && cd build && cmake ${OPTS} .."
