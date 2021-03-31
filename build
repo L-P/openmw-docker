@@ -2,11 +2,13 @@
 
 # The bottleneck is RAM, 8 GiB is not enough for 12 procs.
 # If you want to adjust this, be sure to 'swapoff -a' before if you ever want
-# to recover.
-NPROC=8
+# to recover, be prepared to Alt+SysReq+B anyway.
+MAXJOBS=4
+MAXLOAD=8
+OPTS="-DCMAKE_BUILD_TYPE=Debug -GNinja"
 
 set -exo pipefail
-
 cd "$(dirname "$0")"
-./run-docker sh -c 'mkdir -p build && cd build && cmake ..'
-./run-docker sh -c "cd build && make -j${NPROC}"
+
+./run-docker sh -c "mkdir -p build && cd build && cmake ${OPTS} .."
+./run-docker sh -c "cd build && ninja -j ${MAXJOBS} -l ${MAXLOAD}"
