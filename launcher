@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-./run-docker build/openmw-launcher
+./run-docker build/openmw-launcher "$@"
