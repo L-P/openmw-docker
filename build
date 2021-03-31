@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# The bottleneck is RAM, 8 GiB is not enough for 12 procs.
+# If you want to adjust this, be sure to 'swapoff -a' before if you ever want
+# to recover.
+NPROC=8
+
+set -exo pipefail
+
+cd "$(dirname "$0")"
+./run-docker sh -c 'mkdir -p build && cd build && cmake ..'
+./run-docker sh -c "cd build && make -j${NPROC}"
