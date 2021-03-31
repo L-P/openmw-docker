@@ -8,6 +8,7 @@ Debian (Buster) and is not expected to function anywhere else.
 
 ## Build
 ```shell
+$ git submodule update --init
 $ docker build . -t openmw
 $ ./build
 $ ./launcher # to configure, it will fail to run the game when you click play.
