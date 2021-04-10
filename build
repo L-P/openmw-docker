@@ -11,4 +11,4 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 ./run-docker sh -c "mkdir -p build && cd build && cmake ${OPTS} .."
-./run-docker sh -c "cd build && ninja -j ${MAXJOBS} -l ${MAXLOAD}"
+./run-docker sh -c "cd build && ninja -j ${MAXJOBS} -l ${MAXLOAD} $*"
