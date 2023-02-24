@@ -4,11 +4,6 @@ set -eu
 
 userdir="$(getent passwd "$(whoami)" | cut -d: -f6)"
 
-if [ -z "$MORROWIND_DIR" ]; then
-    echo 'MORROWIND_DIR must point to the dir where Morrowind.exe is.'
-    exit 1
-fi
-
 mkdir -p "$userdir/.config/openmw"
 mkdir -p "$userdir/.local/share/openmw"
 
@@ -18,7 +13,6 @@ sudo docker run --rm -it \
     -v "$(pwd)/openmw:/app" \
     -v "/etc/passwd:/etc/passwd:ro" \
     -v "/etc/group:/etc/group:ro" \
-    -v "$MORROWIND_DIR:/morrowind:ro" \
     -v "$userdir/.config/openmw:$userdir/.config/openmw" \
     -v "$userdir/.cache:$userdir/.cache" \
     -v "$userdir/.local/share/openmw:$userdir/.local/share/openmw" \
