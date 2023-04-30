@@ -13,6 +13,7 @@ RUN apt-get update && \
         libboost-iostreams-dev \
         libboost-program-options-dev \
         libbullet-dev \
+        libcollada-dom-dev \
         libluajit-5.1-dev \
         liblz4-dev \
         libmygui-dev \
