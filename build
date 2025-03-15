@@ -3,8 +3,8 @@
 # The bottleneck is RAM, 8 GiB is not enough for 12 procs.
 # If you want to adjust this, be sure to 'swapoff -a' before if you ever want
 # to recover, be prepared to Alt+SysReq+B anyway.
-MAXJOBS=4
-MAXLOAD=8
+MAXJOBS=8
+MAXLOAD=12
 OPTS="-DCMAKE_BUILD_TYPE=Debug -GNinja"
 
 set -euo pipefail

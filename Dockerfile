@@ -1,7 +1,12 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 VOLUME /app
 WORKDIR /app
+
+RUN set -eux; \
+    apt-get update; \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common; \
+    add-apt-repository ppa:openmw/openmw-daily
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -20,10 +25,12 @@ RUN apt-get update && \
         libopenal-dev \
         libopenscenegraph-dev \
         libqt5opengl5-dev \
+        libqt5svg5-dev \
         libsdl2-dev \
         libsqlite3-dev \
         libswresample-dev \
         libswscale-dev \
         libtinyxml-dev \
         libunshield-dev \
-        libyaml-cpp-dev
+        libyaml-cpp-dev \
+        qttools5-dev
