@@ -13,6 +13,7 @@ sudo docker run --rm -it \
     -v "$(pwd)/openmw:/app" \
     -v "/etc/passwd:/etc/passwd:ro" \
     -v "/etc/group:/etc/group:ro" \
+    -v "/media:/media:ro" \
     -v "$userdir/.config/openmw:$userdir/.config/openmw" \
     -v "$userdir/.cache:$userdir/.cache" \
     -v "$userdir/.local/share/openmw:$userdir/.local/share/openmw" \
